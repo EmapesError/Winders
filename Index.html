@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hosting Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .products {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .product {
+            width: 30%;
+            background: #fff;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-in-out;
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product h3 {
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 22px;
+        }
+        .product p {
+            padding: 15px;
+            font-size: 16px;
+        }
+        .product .price {
+            text-align: center;
+            font-size: 20px;
+            color: #ff5733;
+            margin: 10px 0;
+        }
+        .product button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #1e1e1e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product button:hover {
+            background-color: #333;
+        }
+        /* Animation triggered when element enters the viewport */
+        .product.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        footer p {
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .product {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Game Hosting Services</h1>
+    <p>High-performance hosting for your favorite games</p>
+</header>
+
+<div class="container">
+    <div class="products">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="b753699d01c6957fb9fcebf1b81d2013.jpg" alt="Minecraft Hosting">
+            <h3>Minecraft Hosting</h3>
+            <p>Reliable and high-performance Minecraft server hosting. Enjoy lag-free gaming with our optimized servers.</p>
+            <div class="price">₹50</div>
+            <button>Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="FiveM-Symbol.png" alt="FiveM Hosting">
+            <h3>FiveM Hosting</h3>
+            <p>Best-in-class hosting for FiveM. Run your own server with top-notch performance and stability.</p>
+            <div class="price">₹50</div>
+            <button>Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="Palworld-4k-Wallpaper.jpg" alt="Palworld Hosting">
+            <h3>Palworld Hosting</h3>
+            <p>Host your Palworld server with us. We provide reliable, fast, and secure hosting for a seamless experience.</p>
+            <div class="price">₹50</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Game Hosting Services. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Function to add 'visible' class when the product comes into view
+    function revealProducts() {
+        var products = document.querySelectorAll('.product');
+        for (var i = 0; i < products.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = products[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+
+            if (elementTop < windowHeight - elementVisible) {
+                products[i].classList.add('visible');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', revealProducts);
+    // Initial call to reveal products on page load
+    revealProducts();
+</script>
+
+</body>
+</html>

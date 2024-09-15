@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e2e2e2, #c9c9c9);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .payment-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #1e1e1e;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .payment-option {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .payment-option h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #1e1e1e;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #1e1e1e;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        .upi-id {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .utr-info {
+            color: #777;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Secure Payment</h2>
+    
+    <div class="payment-option">
+        <h3>UPI Payment</h3>
+        <p class="upi-id">UPI ID: <strong>emapesgamerz@ybl</strong></p>
+        <p>Please make the payment via UPI to the UPI ID above.</p>
+        <p class="utr-info">(After completing the payment, enter the UTR number to confirm)</p>
+        <input type="text" id="utr-number" placeholder="Enter your UPI UTR Number">
+    </div>
+
+    <button onclick="submitPayment()">Submit Payment</button>
+</div>
+
+<script>
+    function submitPayment() {
+        var utrNumber = document.getElementById('utr-number').value;
+        
+        if (utrNumber === '') {
+            alert('Please enter your UPI UTR Number.');
+        } else {
+            // Here, you'd send the UTR number to the server for verification (using AJAX or form submission)
+            alert('Payment submitted successfully! Your UTR number: ' + utrNumber);
+            
+            // Redirect to thank you page after payment
+            window.location.href = 'thankyou.html';
+        }
+    }
+</script>
+
+</body>
+</html>

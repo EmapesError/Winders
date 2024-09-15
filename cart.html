@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #1e1e1e;
+            color: white;
+        }
+        td {
+            text-align: left;
+        }
+        input[type="password"], input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Cart</h2>
+        <!-- Example Cart Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cart-table">
+                <!-- Dynamically filled -->
+                <tr>
+                    <td>Minecraft Hosting</td>
+                    <td>₹50</td>
+                    <td>1</td>
+                    <td>₹50</td>
+                </tr>
+                <tr>
+                    <td>FiveM Hosting</td>
+                    <td>₹50</td>
+                    <td>1</td>
+                    <td>₹50</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Enter Your Details</h3>
+        <input type="text" id="username" placeholder="Enter Your Name">
+        <input type="text" id="phone" placeholder="Enter Your Phone Number">
+        <input type="password" id="user-password" placeholder="Enter Your Password">
+
+        <button onclick="submitCart()">Submit Cart</button>
+    </div>
+
+    <script>
+        // Function to submit the cart details including password
+        function submitCart() {
+            const username = document.getElementById('username').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('user-password').value;
+            
+            if (!username || !phone || !password) {
+                alert("Please fill all the fields!");
+                return;
+            }
+
+            // Store user details (you'll need server-side logic to store these details)
+            const userCart = {
+                username: username,
+                phone: phone,
+                password: password,
+                cartItems: [
+                    { product: 'Minecraft Hosting', price: 50, quantity: 1, total: 50 },
+                    { product: 'FiveM Hosting', price: 50, quantity: 1, total: 50 }
+                ]
+            };
+
+            // Example of what you might do with this data (e.g., send it to the server)
+            console.log("User Cart Submitted:", userCart);
+
+            // Optionally, save the cart to the server here using an AJAX call, or redirect.
+            alert('Cart submitted! Admin can now view your details.');
+        }
+    </script>
+</body>
+</html>
